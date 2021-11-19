@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { PeliculaModule } from 'src/app/models/pelicula/pelicula.module';
 
 @Component({
   selector: 'app-agregar-peliculas',
@@ -9,7 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AgregarPeliculasComponent implements OnInit {
   peliculaForm: FormGroup;
 
-  constructor(private fb:FormBuilder) {
+  constructor(private fb:FormBuilder, private router:Router) {
     this.peliculaForm=this.fb.group(
       {
         nombre:['',Validators.required],
@@ -27,14 +29,14 @@ export class AgregarPeliculasComponent implements OnInit {
 
   agregarPelicula()
   {
-    console.log(this.peliculaForm);
-    console.log(this.peliculaForm.get('nombre')?.value);
-    console.log(this.peliculaForm.get('categoria')?.value);
-    console.log(this.peliculaForm.get('director')?.value);
-    console.log(this.peliculaForm.get('anioEstreno')?.value);
-    console.log(this.peliculaForm.get('duracion')?.value);
-    console.log(this.peliculaForm.get('presupuesto')?.value);
-
+    const PELICULA: PeliculaModule={
+    nombre:this.peliculaForm.get('nombre')?.value,
+    categoria:this.peliculaForm.get('categoria')?.value,
+    director:this.peliculaForm.get('director')?.value,
+    anioEstreno:this.peliculaForm.get('anioEstreno')?.value,
+    duracion:this.peliculaForm.get('duracion')?.value,
+    presupuesto:this.peliculaForm.get('presupuesto')?.value
+    }
   }
 
 }
