@@ -37,6 +37,8 @@ export class AgregarPeliculasComponent implements OnInit {
     duracion:this.peliculaForm.get('duracion')?.value,
     presupuesto:this.peliculaForm.get('presupuesto')?.value
     }
+    console.log(PELICULA);
+    this.router.navigate(['/peliculas']);
   }
 
 }
