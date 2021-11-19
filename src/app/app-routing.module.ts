@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AgregarPeliculasComponent } from './components/agregar-peliculas/agregar-peliculas.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 
 const routes: Routes = [
@@ -7,7 +8,7 @@ const routes: Routes = [
     path:'peliculas', component:PeliculasComponent
   },
   {
-    path:'**', redirectTo:'',pathMatch:'full'
+    path:'agregar-pelicula',component:AgregarPeliculasComponent
   }
 ];
 
